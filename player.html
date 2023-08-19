@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" type="text/css" href="./styyle.css">
+        
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <div class="audio-controls">
+                <audio controls>
+                    <source id="source" src="music/jhoom.mp3">
+
+                </audio>
+
+            </div>
+            <div class="names"><p id="names"></p></div>
+            <div class="controls">
+                <button id="back">Back</button>
+                <button id="forward">Forward</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const sourcetag = document.getElementById("source");
+        const names = document.getElementById("names");
+        
+
+let index = 0;
+
+// sourcetag.setAttribute("src", "music/" + )
+const musiclist = ["jhoom.mp3","bolkaffara.mp3","duakaro.mp3","galliyan.mp3", "lalisa.mp3"]
+names.innerHTML = musiclist[index]
+function forwardmusic(){
+    if (index != 4){
+        index++;
+    }
+    else if (index == 4){
+        index = 0;
+    }
+    sourcetag.setAttribute("src","music/" + musiclist[index]);
+    names.innerHTML = musiclist[index]
+    sourcetag.parentElement.load(); // Reload the audio element
+    sourcetag.parentElement.play(); // Play the audio
+}
+
+function backmusic() {
+    if (index > 0) {
+        index--;
+    } else {
+        index = musiclist.length - 1;
+    }
+    sourcetag.setAttribute("src", "music/" + musiclist[index]);
+    names.innerHTML = musiclist[index]
+    sourcetag.parentElement.load();
+    sourcetag.parentElement.play(); 
+}
+
+
+const forward = document.getElementById("forward");
+const back = document.getElementById("back");
+forward.addEventListener("click",forwardmusic);
+back.addEventListener("click",backmusic);
+
+
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styyle.css">
+    <title>Music Player</title>
+</head>
+<body>
+    <div>
+        <div>
+            <audio controls>
+                <source id = "source" src="music/jhoom.mp3">
+
+            </audio>
+        </div>
+        <div class="button">
+            <button id="forward">Forward</button>
+        </div>
+        <div class="back">
+            <button id="back">Back</button>
+        </div>
+    </div>
+</body>
+<script>
+    const sourcetag = document.getElementById("source");
+
+    let index = 0;
+    // sourcetag.setAttribute("src", "music/" + )
+    const musiclist = ["jhoom.mp3","bolkaffara.mp3","duakaro.mp3","galliyan.mp3", "lalisa.mp3"]
+
+    function forwardmusic(){
+        if (index != 4){
+            index++;
+        }
+        else if (index == 4){
+            index = 0;
+        }
+        sourcetag.setAttribute("src","music/" + musiclist[index]);
+        sourcetag.parentElement.load(); // Reload the audio element
+        sourcetag.parentElement.play(); // Play the audio
+    }
+
+    function backmusic() {
+        if (index > 0) {
+            index--;
+        } else {
+            index = musiclist.length - 1;
+        }
+        sourcetag.setAttribute("src", "music/" + musiclist[index]);
+        sourcetag.parentElement.load();
+        sourcetag.parentElement.play(); 
+    }
+
+
+    const forward = document.getElementById("forward");
+    const back = document.getElementById("back");
+    forward.addEventListener("click",forwardmusic);
+    back.addEventListener("click",backmusic);
+
+
+    </script>
+</html> -->
