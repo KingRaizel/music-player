@@ -1,1 +1,1 @@
-Music Player USing HTML, CSS and JS
+Music Player Using HTML, CSS and JS
