@@ -1,1 +1,1 @@
-imple Music Player Using HTML, CSS and JS
+Simple Music Player Using HTML, CSS and JS
